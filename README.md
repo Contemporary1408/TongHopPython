@@ -3,8 +3,3 @@
 2. Install offline whl CLI: Open cmd > change to directory where whl file located > pip install name.whl -f ./ --no-index --no-deps
 3. Chạy Pyinstaller: Open cmd then input: python -m PyInstaller "D:\py\main.py" --onefile
 https://realpython.com/python-gui-tkinter/
-4. Command prompt to change directory:
-"C:\Users\anh.doduc>cd\
-C:\>D:
-D:\>cd D:\pysap
-D:\pysap>"
