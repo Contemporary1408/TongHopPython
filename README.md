@@ -3,3 +3,4 @@
 2. Install offline whl CLI: Open cmd > change to directory where whl file located > pip install name.whl -f ./ --no-index --no-deps
 3. Chạy Pyinstaller: Open cmd then input: python -m PyInstaller "D:\py\main.py" --onefile
 4. Automate SAP Python: https://k-weiming.github.io/2021-08-23-sap-connection-python/
+5. Class khởi tạo với func '__init__' và các func khác [VD: def buy(c,d)], khởi tạo 1 object XXX với tên_class(a,b) và gọi method lên XXX.buy
