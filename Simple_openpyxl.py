@@ -5,8 +5,11 @@ wb = load_workbook(path)
 # grab the active worksheet
 ws = wb.active
 ws2 = wb["Sheet2"]
+
 # Data can be assigned directly to cells
 ws2['A1'] = 42
+# or:
+ws2.cell(row=1,column=1) = 42
 
 # Rows can also be appended
 ws2.append([1, 2, 3])
