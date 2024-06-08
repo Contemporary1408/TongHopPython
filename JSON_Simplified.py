@@ -12,3 +12,12 @@ with urllib.request.urlopen("https://api.weatherapi.com/v1/forecast.json?key=ef1
     data = json.load(url)
 print(data['forecast']['forecastday'][0]['date']) #print date in forecast
 print(data['current']['condition']['text'])
+
+# #############################
+# or update value to any key in json then save
+import json
+with open(r"D:\pysap\forecast.json") as file:
+    nested_data = json.load(file)
+nested_data['current']['condition']['text'] = "Trời nắng"
+with open(r"D:\pysap\forecast.json2", 'w') as outfile:
+    json.dump(nested_data, outfile)
