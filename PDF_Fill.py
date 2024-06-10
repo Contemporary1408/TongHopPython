@@ -1,4 +1,4 @@
-#Ref https://chinapandaman.github.io/PyPDFForm/fill/
+#Ref https://chinapandaman.github.io/PyPDFForm/inspect/
 # #################################################
 # Firstly run this code to get json structure of PDF:
 import json
