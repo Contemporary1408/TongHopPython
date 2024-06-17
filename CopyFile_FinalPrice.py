@@ -4,7 +4,7 @@ import openpyxl as xl
 import ctypes
 import os
 import shutil
-
+# Create function to mapping key-value from dict
 def get_value(dictionary, string):
     for key, value in dictionary.items():
         if string in key:
@@ -16,24 +16,22 @@ temp_path = filedialog.askopenfilename(title="Chọn đường dẫn template Fi
 wb = xl.load_workbook(temp_path,data_only=True)
 ws = wb.active
 lrow = ws.max_row
-tempdir = os.path.dirname(temp_path)
+tempdir = os.path.dirname(temp_path) #Get parent folder directory of Template file
+dict1={} #Create a dict to mapping file - folder
 for i in range(2,lrow+1):
-    foldname = str(ws.cell(row=i,column=4).value.date().strftime("%d-%b"))
-    new_fol = tempdir + "/" + foldname
-    if not os.path.exists(new_fol):
+    foldname = str(ws.cell(row=i,column=4).value.date().strftime("%d-%b")) #New folder name
+    new_fol = tempdir + "/" + foldname #Directory to new folder
+    if not os.path.exists(new_fol): #Check folder exist then create new folder
         os.mkdir(new_fol)
-dict1={}
-for i in range(2,lrow+1):
-    foldname = str(ws.cell(row=i,column=4).value.date().strftime("%d-%b"))
     filename = "Inv " + str(ws.cell(row=i,column=1).value) + " (final price).xlsx"
     dict1[filename] = foldname
-for path, dirs, files in os.walk(tempdir):
+for path, dirs, files in os.walk(tempdir): #Loop thru all folders and subfolders
     for file in files:
         if file in dict1:
             src_path = os.path.join(path, file).replace("\\","/")
             dest_path = os.path.join(tempdir, get_value(dict1,file),file).replace("\\","/")
             try:
-                shutil.copyfile(src_path, dest_path)
+                shutil.copyfile(src_path, dest_path) #Copy file
 
             # If source and destination are same
             except shutil.SameFileError:
