@@ -37,3 +37,8 @@ for path, dirs, files in os.walk(tempdir): #Loop thru all folders and subfolders
             except shutil.SameFileError:
                 print("Source and destination represents the same file.")
 ctypes.windll.user32.MessageBoxW(0, "Done, 520!", "Thông báo", 0)
+
+
+# Another approach for check and return key's value in dictionary:
+def get_value(key, dictionary):
+    return dictionary.get(key, None)
