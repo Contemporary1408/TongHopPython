@@ -1,3 +1,13 @@
+from winotify import Notification  # MOST RECOMMEND!
+
+toast = Notification(app_id="windows app",
+                     title="Winotify Test Toast",
+                     msg="New Notification!",
+                     icon=r"c:\path\to\icon.png")
+
+toast.show()
+
+# #######################################################
 from plyer import notification
 # Define a function to show a Windows 10 notification
 def show_notification(title, message):
