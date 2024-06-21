@@ -20,6 +20,7 @@ else:
 
 #Formate date https://www.tutorialspoint.com/How-to-get-formatted-date-and-time-in-Python
 from datetime import date
+t = date(2024,6,17) #assign 17/6/2024 to var t
 a = date.today().strftime("%d-%m-%y") #print 21-06-24
 a = date.today().strftime("%d-%b-%y") #print 21-Jun-24
 a = date.today().strftime("%a-%m-%y") #print Fri-06-24
