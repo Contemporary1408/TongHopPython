@@ -1,3 +1,5 @@
+if __name__ == '__main__': # to directly run script
+    
 # Msgbox like VBA
 import ctypes
 ctypes.windll.user32.MessageBoxW(0, "Content here", "Title here", 0)
