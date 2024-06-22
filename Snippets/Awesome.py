@@ -25,7 +25,7 @@ a = date.today().strftime("%d-%m-%y") # Output 21-06-24
 a = date.today().strftime("%d-%b-%y") # Output 21-Jun-24
 a = date.today().strftime("%a-%m-%y") # Output Fri-06-24
 
-#Nested list:
+#Nested list: https://www.learnbyexample.org/python-nested-list/
 L = ['a', 'b', ['cc', 'dd', ['eee', 'fff']], 'g', 'h']
 print(L[2])         # Output: ['cc', 'dd', ['eee', 'fff']]
 print(L[2][2])      # Output: ['eee', 'fff']
