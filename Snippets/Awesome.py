@@ -15,7 +15,7 @@ shutil.copyfile(src_path, ico_path)
 
 # Check today is Monday?
 from datetime import date
-if date.today().isoweekday() == 5:
+if date.today().isoweekday() == 1:
     print("Yes, today is Monday")
 else:
     print("Nope...")
