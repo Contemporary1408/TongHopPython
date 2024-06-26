@@ -1,3 +1,4 @@
+# With simple non-HTML outlook email
 import win32com.client as win32
 import pandas as pd
 import os
@@ -62,3 +63,33 @@ else:
     flag = True    
 send_email()
 toast.show()
+
+
+# *******************************************************************************************************************************
+# With HTML support changing format, add signature,...
+import win32com.client as win32
+
+def add_signature_to_email(message, subject, recipient):
+    outlook = win32.Dispatch('Outlook.Application')
+    mail = outlook.CreateItem(0)
+    mail.To = recipient
+    mail.Subject = subject
+
+    # Get the existing email signature
+    mail.GetInspector()
+    index = mail.HTMLbody.find('>', mail.HTMLbody.find('<body'))
+    existing_signature = mail.HTMLbody[:index + 1]
+
+    # Your custom message
+    custom_message = "Hello there! This is a test email."
+
+    # Combine the existing signature and your custom message
+    mail.HTMLbody = existing_signature + custom_message + mail.HTMLbody[index + 1:]
+
+    # Display the email (you can uncomment 'mail.send' to actually send it)
+    mail.Display(True)
+
+# Example usage:
+email_subject = "Important Update"
+recipient_email = "recipient@example.com"
+add_signature_to_email("Your custom message here.", email_subject, recipient_email)
