@@ -1,5 +1,18 @@
 if __name__ == '__main__': # to directly run script
     
+# Common tag for HTML:
+    <a>: Creates hyperlinks (anchors).
+    <ul>: Defines an unordered list (bulleted list).
+    <ol>: Defines an ordered list (numbered list).
+    <li>: Represents a list item within <ul> or <ol>.
+    <img>: Embeds images.
+    <br>: Inserts a line break (empty element).
+    <strong> or <b>: Makes text bold.
+    <em> or <i>: Makes text italic.
+    <p>This is a paragraph of text.</p>
+    <h1>This is the main heading</h1>
+    <h2>This is a subheading</h2>
+    
 # Msgbox like VBA
 import ctypes
 ctypes.windll.user32.MessageBoxW(0, "Content here", "Title here", 0)
