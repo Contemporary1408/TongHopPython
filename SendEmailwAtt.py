@@ -86,8 +86,15 @@ def add_signature_to_email(message, subject, recipient):
     #custom_message = "<p>This is a <b>bold</b> message.</p>" #Bold
     #custom_message = "<p>This is a <u>underlined</u> message.</p>" #Underlined
     #custom_message = "<p>This is a message.<br> </p>" #Add <br> at end of line to break line
-    body += f"<p style='font-size: 10px;'>This automated email is powered by Python.</p>" #Set font size
-  
+    #body += f"<p style='font-size: 10px;'>This automated email is powered by Python.</p>" #Set font size
+ 
+#Parameters to add table to email body:
+data= [{'A' : 'data', 'B': 2, 'C':1.78},
+      {'A' : 'data', 'B': 22, 'C':1.56},]
+table = pd.DataFrame(data)
+body = '<html><body>' + table.to_html() + '</body></html>'
+
+
     # Combine the existing signature and your custom message
     mail.HTMLbody = existing_signature + custom_message + mail.HTMLbody[index + 1:]
 
