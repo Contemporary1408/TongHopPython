@@ -85,6 +85,7 @@ def add_signature_to_email(message, subject, recipient):
     #custom_message = "<p>This is a <i>italic</i> message.</p>" #Italic
     #custom_message = "<p>This is a <b>bold</b> message.</p>" #Bold
     #custom_message = "<p>This is a <u>underlined</u> message.</p>" #Underlined
+    #custom_message = "<p>This is a message.<br> </p>" #Add <br> at end of line to break line
   
     # Combine the existing signature and your custom message
     mail.HTMLbody = existing_signature + custom_message + mail.HTMLbody[index + 1:]
