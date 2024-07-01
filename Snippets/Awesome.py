@@ -45,3 +45,9 @@ L = ['a', 'b', ['cc', 'dd', ['eee', 'fff']], 'g', 'h']
 print(L[2])         # Output: ['cc', 'dd', ['eee', 'fff']]
 print(L[2][2])      # Output: ['eee', 'fff']
 print(L[2][2][0])   # Output: eee
+
+#Get max row index of a column:
+import pandas as pd
+df = pd.read_excel(r"C:\Users\Contemporary\Desktop\exceltest.xlsx",sheet_name='Sheet1')  # Replace with your sheet name
+column_name = 'Index Date'
+max_row = len(df[column_name].dropna()) + 1
