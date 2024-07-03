@@ -32,7 +32,7 @@ if flag == False:
     connection = application.Children(0)
     session = connection.Children(0)
     session.findById("wnd[0]").maximize()
-    session.findById("wnd[0]/tbar[0]/okcd").text = "/oF-65"
+    session.findById("wnd[0]/tbar[0]/okcd").text = "/nF-65" #Nên để /n thay vì /o để tránh thay đổi wnd[0]
     session.findById("wnd[0]").sendVKey(0)
 #Nếu chưa đăng nhập SAP:    
 else:    
