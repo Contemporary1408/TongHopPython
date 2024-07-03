@@ -1,9 +1,15 @@
-from winotify import Notification  # MOST RECOMMEND!
-
+from winotify import Notification # MOST RECOMMEND!
+import shutil
+import os
+home_directory = os.path.expanduser('~').replace("\\","/")
+downloads_path = os.path.join(home_directory, 'Downloads').replace("\\","/")
+src_path = r"\\10.118.29.7\BTMV-Data\1-ALL\05. 1611\asset\sua.ico"
+ico_path = os.path.join(downloads_path, "sua.ico").replace("\\","/")
+shutil.copyfile(src_path, ico_path) # Phải copy icon về ổ 1 folder local thì toast mới nhận, VD:Downloads
 toast = Notification(app_id="windows app",
                      title="Winotify Test Toast",
                      msg="New Notification!",
-                     icon=r"c:\path\to\icon.png")
+                     icon=ico_path)
 
 toast.show()
 
