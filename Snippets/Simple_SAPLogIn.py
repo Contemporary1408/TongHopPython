@@ -19,8 +19,8 @@ session.findById("wnd[0]").maximize()
 import os
 import win32com.client
 import time
-import subprocess
 import psutil
+tcode = "ZGM07" #Thay đổi tcode
 flag = True
 for process in psutil.process_iter(attrs=['name']):
     if process.info['name'] == 'saplogon.exe':
@@ -32,13 +32,13 @@ if flag == False:
     connection = application.Children(0)
     session = connection.Children(0)
     session.findById("wnd[0]").maximize()
-    session.findById("wnd[0]/tbar[0]/okcd").text = "/nF-65" #Nên để /n thay vì /o để tránh thay đổi wnd[0]
+    session.findById("wnd[0]/tbar[0]/okcd").text = "/n" + tcode
     session.findById("wnd[0]").sendVKey(0)
 #Nếu chưa đăng nhập SAP:    
 else:    
     path = r"C:\Program Files (x86)\SAP\FrontEnd\SAPgui\saplogon.exe"
     os.system('start "" "' + path + '"')
-    time.sleep(1)
+    time.sleep(1.5)
     SapGuiAuto = win32com.client.GetObject('SAPGUI')
     application = SapGuiAuto.GetScriptingEngine
     connection = application.OpenConnection("BTMV Production Server", True)
@@ -47,5 +47,10 @@ else:
     session.findById("wnd[0]/usr/pwdRSYST-BCODE").text = "btmv@140894"
     session.findById("wnd[0]").sendVKey(0)
     session.findById("wnd[0]").maximize()
-    session.findById("wnd[0]/tbar[0]/okcd").text = "/nZGM07" 
+    session.findById("wnd[0]/tbar[0]/okcd").text = "/n" + tcode
     session.findById("wnd[0]").sendVKey(0)
+#Code main chạy từ đây:
+session.findById("wnd[0]/usr/ctxtP_BUKRS").Text = "1000"
+session.findById("wnd[0]/usr/ctxtS_WERKS-LOW").Text = "1000"
+session.findById("wnd[0]/usr/ctxtS_PO_DAT-LOW").Text = "01.01.2020"
+session.findById("wnd[0]/usr/ctxtS_PO_DAT-HIGH").Text = "30.08.2023"                
