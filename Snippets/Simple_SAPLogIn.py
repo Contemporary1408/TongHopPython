@@ -22,7 +22,7 @@ import win32com.client
 import time
 import psutil
 #tcode = "ZGM07" #Thay đổi tcode
-def GSAP(tcode):
+def GSAP(tcode,id,pw,con):
     flag = True
     for process in psutil.process_iter(attrs=['name']):
         if process.info['name'] == 'saplogon.exe':
@@ -44,10 +44,10 @@ def GSAP(tcode):
         time.sleep(1.5)
         SapGuiAuto = win32com.client.GetObject('SAPGUI')
         application = SapGuiAuto.GetScriptingEngine
-        connection = application.OpenConnection("BTMV Production Server", True)
+        connection = application.OpenConnection(con, True)
         session = connection.Children(0)
-        session.findById("wnd[0]/usr/txtRSYST-BNAME").text = "VHACS12"
-        session.findById("wnd[0]/usr/pwdRSYST-BCODE").text = "btmv@140894"
+        session.findById("wnd[0]/usr/txtRSYST-BNAME").text = id
+        session.findById("wnd[0]/usr/pwdRSYST-BCODE").text = pw
         session.findById("wnd[0]").sendVKey(0)
         session.findById("wnd[0]").maximize()
         session.findById("wnd[0]/tbar[0]/okcd").text = "/n"+ tcode
@@ -56,7 +56,7 @@ def GSAP(tcode):
         
 # In other script, to reuse it:
 from GLoginSAP import GSAP
-session = GSAP(tcode="ZGM07")
+session = GSAP(tcode="ZGM07",id="VHACS12",pw="btmv@140894",con="BTMV Production Server")
 #then run code from here:
 session.findById("wnd[0]/usr/ctxtP_BUKRS").Text = "1000"
 session.findById("wnd[0]/usr/ctxtS_WERKS-LOW").Text = "1000"
