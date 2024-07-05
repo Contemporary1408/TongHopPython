@@ -1,3 +1,4 @@
+#File json trong folder assets
 import FreeSimpleGUI as sg
 import json
 from datetime import date, timedelta
