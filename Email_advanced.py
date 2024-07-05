@@ -26,7 +26,7 @@ while True:
         break
 window.close()
 # ##################################################################################
-with open("mail_loop_adv.json") as file:
+with open("mail_loop_adv.json",encoding='utf-8') as file: #Thêm encoding để nhận ký tự unicode
     nested_data = json.load(file)
 # ##################################################################################
 outlook = win32.Dispatch('outlook.application')
