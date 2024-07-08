@@ -4,10 +4,10 @@ def smart_divide(func):
         if b == 0:
             print("Whoops! cannot divide")
             return  
-        print(func(a,b))
+        return func(a,b)
     return inner
-  
+    
 @smart_divide
 def divide(a,b):
-    return a / b
-divide(a = 8,b = 4)
+    print(a / b)
+divide(a = 8,b = 0)
