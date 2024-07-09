@@ -1,4 +1,10 @@
 if __name__ == '__main__': # to directly run script
+
+import os
+import getpass
+homedir = os.path.expanduser("~")+'\Desktop' # Getting desktop directory
+username = getpass.getuser()   # This is the user name
+
     
 # Common tag for HTML:
     <a>: Creates hyperlinks (anchors).
