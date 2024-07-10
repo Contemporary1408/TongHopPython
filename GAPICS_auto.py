@@ -1,8 +1,8 @@
 import os, os.path
 import win32com.client
-import csv
 from xlsxwriter.workbook import Workbook
 import ctypes
+import csv
 import pandas as pd
 #Run VBA ket xuat tsv tu SAP:
 def GAPIC():
@@ -28,7 +28,7 @@ def GAPIC():
         xlsx_file = r"\\10.118.29.7\BTMV-Data\4-ACCOUNTING\10.G-APICS\Automate GAPICS\ZGAPICS01.xlsx"
         workbook = Workbook(xlsx_file)
         worksheet = workbook.add_worksheet()
-        tsv_reader = csv.reader(open(tsv_file, 't+r'), delimiter='\t')
+        tsv_reader = csv.reader(open(tsv_file, 'r'), delimiter='\t')
         print('THÔNG BÁO: Đang xử lý file tsv vừa kết xuất - 50%')
         for row, data in enumerate(tsv_reader):
             worksheet.write_row(row, 0, data)
@@ -47,14 +47,15 @@ def GAPIC():
         del xl
     print('THÔNG BÁO: Lưu dữ liệu thành công! - 95%')
     excel = r"\\10.118.29.7\BTMV-Data\4-ACCOUNTING\10.G-APICS\Automate GAPICS\GAPICS Template.xlsm"
-    csv = r"\\10.118.29.7\BTMV-Data\4-ACCOUNTING\10.G-APICS\Automate GAPICS\GAPICS upload.tsv"
+    tsv = r"\\10.118.29.7\BTMV-Data\4-ACCOUNTING\10.G-APICS\Automate GAPICS\GAPICS upload.tsv"
     df = pd.read_excel(excel, sheet_name='SAP data',header=None)
     print(df.head())
     print('THÔNG BÁO: Đang tạo file tsv để upload - 99%')
-    df.to_csv(csv)
+    df.to_csv(tsv)
     # Read the Excel file
     df = pd.read_excel(excel, sheet_name='SAP data', header=1, usecols=lambda x: 'Unnamed' not in x)
     # Write to a text file (change the separator if needed)
-    df.to_csv(csv, sep='\t', index=False,header=False)
+    df.to_csv(tsv, sep="\t", index=False  ,header=False,float_format='%.0f')
     ctypes.windll.user32.MessageBoxW(0, "Chương trình đã thực hiện xong!", "Thông báo", 0)
     os.system("taskkill /im saplogon.exe")
+GAPIC()
