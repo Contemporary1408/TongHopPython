@@ -57,3 +57,4 @@ import pandas as pd
 df = pd.read_excel(r"C:\Users\Contemporary\Desktop\exceltest.xlsx",sheet_name='Sheet1')  # Replace with your sheet name
 column_name = 'Index Date'
 max_row = len(df[column_name].dropna()) + 1
+df.to_csv('output.csv', float_format='%.0f', index=False, header=False) # This will save the DataFrame to “output.csv” with integers (no decimal places).
