@@ -18,5 +18,8 @@ ws2.append([1, 2, 3])
 import datetime
 ws2['A2'] = datetime.datetime.now()
 
+#Write formula to a cell:
+ws['A3'] = '=SUM(A1:A2)'
+
 # Save the file
 wb.save(path)
