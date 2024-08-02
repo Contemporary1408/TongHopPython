@@ -6,5 +6,6 @@
 5. Class khởi tạo với func __init__ và các func khác [VD: def buy(c,d)], khởi tạo 1 object XXX với tên_class(a,b) và gọi method lên XXX.buy
 6. Tkinter: https://python-course.eu/tkinter/dialogs-in-tkinter.php
 7. "pip freeze > my-reqs.txt" // "pip install -r my-reqs.txt"
-8. Cheatsheet: https://www.dummies.com/article/technology/programming-web-design/python/python-for-kids-for-dummies-cheat-sheet-207407/
-9. SAP Scripting Tracker: https://tracker.stschnell.de/
+8. Cheatsheet1: https://www.dummies.com/article/technology/programming-web-design/python/python-for-kids-for-dummies-cheat-sheet-207407/
+9. Cheatsheet2: https://devhints.io/python
+10. SAP Scripting Tracker: https://tracker.stschnell.de/
