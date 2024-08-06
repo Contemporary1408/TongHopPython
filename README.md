@@ -9,3 +9,4 @@
 8. Cheatsheet1: https://www.dummies.com/article/technology/programming-web-design/python/python-for-kids-for-dummies-cheat-sheet-207407/
 9. Cheatsheet2: https://devhints.io/python
 10. SAP Scripting Tracker: https://tracker.stschnell.de/
+11. SAP interesting facts: https://gayoway.com/blog/
