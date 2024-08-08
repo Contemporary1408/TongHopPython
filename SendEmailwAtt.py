@@ -1,4 +1,5 @@
 #Send Actual vs Budget report email
+#File template Excel là Mail list.xlsx trong folder assets
 import win32com.client as win32
 import pandas as pd
 import os
