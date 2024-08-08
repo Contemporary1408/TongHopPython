@@ -1,4 +1,4 @@
-# With simple non-HTML outlook email
+#Send Actual vs Budget report email
 import win32com.client as win32
 import pandas as pd
 import os
@@ -6,6 +6,7 @@ import tkinter as tk
 from tkinter import messagebox
 from winotify import Notification
 import shutil
+image_path = r"\\10.118.29.7\BTMV-Data\4-ACCOUNTING\27.Budget report\Act vs budget report\Automate\old\python-logo.png"
 home_directory = os.path.expanduser('~').replace("\\","/")
 downloads_path = os.path.join(home_directory, 'Downloads').replace("\\","/")
 src_path = r"\\10.118.29.7\BTMV-Data\4-ACCOUNTING\27.Budget report\Act vs budget report\Automate\old\sua.ico"
@@ -19,13 +20,11 @@ flag = False
 def ask_yes_no():
     root = tk.Tk()
     root.withdraw()  # Hide the main window
-    return messagebox.askyesno("Thông báo", "Xem lại và gửi bằng tay?")
+    return messagebox.askyesno("Thông báo", "Display emails only?")
 # Function to create personalized email body with kwargs
 def create_email_body(**kwargs):
-    body = f"Dear {kwargs.get('name')},\n\n"
+    body = f"Dear {kwargs.get('name')},<br><br>"
     body += kwargs.get('custom_message')
-    body += f"\nBest regards,\n{kwargs.get('sender')} - Accounting & Finance Dept. \nDect: 51624"
-    #body += f"\nThis automated email is powered by Python"
     return body
 def send_email():
     # Load the Excel file with recipient details
@@ -39,12 +38,17 @@ def send_email():
         mail.Cc = row['EmailCc']
         mail.Subject = row['Subject']
 
+         # Get the existing email signature
+        mail.GetInspector()
+        index = mail.HTMLbody.find('>', mail.HTMLbody.find('<body'))
+        existing_signature = mail.HTMLbody[:index + 1]
+
         # Create a personalized email body using kwargs
-        mail.Body = create_email_body(
+        mail.HTMLBody = existing_signature + create_email_body(
             name=row['Name'],  # Assuming 'Name' is a column in your Excel file
             custom_message=f"{row['Body']}",  # Example of using another column
-            sender = row['Sender']
-        )
+            #sender = row['Sender']
+        ) + mail.HTMLbody[index + 1:] + f"<h1 style='font-size: 11px;'>This automated email is powered by:<br></h1>" + f'<img src="{image_path}">'
 
         # Add attachment
         src_folder = os.path.dirname(mail_list)
@@ -56,6 +60,7 @@ def send_email():
         if flag == False:                    
             mail.Display()
         else:
+            mail.Display() #một số cty có thể có policy chống spam nên lách bằng cách Display() trước khi Send()
             mail.Send()
 if ask_yes_no():
     flag = False
