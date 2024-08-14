@@ -1,4 +1,4 @@
-if __name__ == '__main__': # to directly run script
+if __name__ == '__main__': # use to test when the script is run directly, not being imported into other scripts
 
 import os
 import getpass
