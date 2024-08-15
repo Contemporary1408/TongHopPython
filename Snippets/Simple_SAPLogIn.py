@@ -73,7 +73,7 @@ import time
 def saplogin():
         path = r"C:\Program Files\SAP\NWBC770\NWBC.exe"
         subprocess.Popen(path)
-        time.sleep(13)
+        time.sleep(13) #SAP BC chờ mở lên được menu khá lâu nên để tạm 13s
         SapGuiAuto = win32com.client.GetObject("SAPGUISERVER")
         application = SapGuiAuto.GetScriptingEngine
         connection = application.Children(0)
