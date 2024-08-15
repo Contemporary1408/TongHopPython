@@ -28,7 +28,7 @@ def GSAP(tcode,id,pw,con):
         if process.info['name'] == 'saplogon.exe':
             flag = False
     #Nếu đã đăng nhập SAP:
-    if flag == False:      
+    if not flag:      
         SapGuiAuto = win32com.client.GetObject('SAPGUI')
         application = SapGuiAuto.GetScriptingEngine
         connection = application.Children(0)
