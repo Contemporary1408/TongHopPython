@@ -18,7 +18,7 @@ python -m PyInstaller "D:\py\main.py" --onefile
 pip freeze my-reqs.txt
 pip install -r my-reqs.txt
 ```
-11. Cheatsheet1: https://www.dummies.com/article/technology/programming-web-design/python/python-for-kids-for-dummies-cheat-sheet-207407/
-12. Cheatsheet2: https://devhints.io/python
-13. SAP Scripting Tracker: https://tracker.stschnell.de/
-14. SAP interesting facts: https://gayoway.com/blog/
+10. Cheatsheet1: https://www.dummies.com/article/technology/programming-web-design/python/python-for-kids-for-dummies-cheat-sheet-207407/
+11. Cheatsheet2: https://devhints.io/python
+12. SAP Scripting Tracker: https://tracker.stschnell.de/
+13. SAP interesting facts: https://gayoway.com/blog/
