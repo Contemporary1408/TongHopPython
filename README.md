@@ -4,7 +4,7 @@ And then use that to run your scripts by right clicking a python script file, op
 Also, if you have another version of Python, or is installed elsewhere, you must change the "C:\Python34\" part.
 3. Install offline whl CLI: Open cmd > change to directory where whl file located:
 ```cmd
-pip install name.whl -f ./ --no-index --no-deps
+pip install packagename.whl -f ./ --no-index --no-deps
 ```
 4. Chạy Pyinstaller:
 ```cmd
