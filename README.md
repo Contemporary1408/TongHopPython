@@ -22,3 +22,7 @@ pip install -r my-reqs.txt
 11. Cheatsheet2: https://devhints.io/python
 12. SAP Scripting Tracker: https://tracker.stschnell.de/
 13. SAP interesting facts: https://gayoway.com/blog/
+14. Sử dụng Pyinstaller cùng với --onefile(bundles everything into a single executable) --windowed(prevents a command prompt from appearing when running GUI apps)
+```cmd
+pyinstaller --onefile --windowed --icon=your_icon.ico your_script.py
+```
