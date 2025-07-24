@@ -15,7 +15,7 @@ python -m PyInstaller "D:\py\main.py" --onefile
 8. Tkinter: https://python-course.eu/tkinter/dialogs-in-tkinter.php
 9. Saving requirement
 ```cmd
-pip freeze my-reqs.txt
+pip freeze > my-reqs.txt
 pip install -r my-reqs.txt
 ```
 10. Cheatsheet1: https://www.dummies.com/article/technology/programming-web-design/python/python-for-kids-for-dummies-cheat-sheet-207407/
